@@ -41,6 +41,10 @@ class ArchivadorHash
   # this method counts unattendance considering they are like '00'
   def show_total_unattendance_number
     puts 'show_total_unattendance_number'
+    total_unattendance_number = @data.inject (0) do |mem, (_k, e)|
+      mem + e.count('00')
+    end
+    puts total_unattendance_number.to_s
   end
 
   def show_pass_pupil(validated_pass_mark)
