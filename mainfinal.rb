@@ -9,6 +9,22 @@ def menu
   gets.chomp.to_i
 end
 
+def pass_mark_get
+  puts ''
+  print 'Ingresa num del 0 al 10: '
+  gets.chomp.to_i
+end
+
+def validate_get_pass_mark
+  pass_mark = pass_mark_get
+  if pass_mark.between?(0, 10)
+    pass_mark
+  else
+    puts 'As the pass_mark was not in 0 to 10 range, 5 is the default value'
+    5
+  end
+end
+
 puts 'archivo = ArchivadorHash.new'
 
 exit = false
@@ -16,7 +32,9 @@ until exit
   case menu
   when 1 then puts 'archivo.genenate_average_files'
   when 2 then puts 'archivo.show_total_unattendance_number'
-  when 3 then puts 'archivo.show_pass_pupil(validate_get_pass_mark)'
+  when 3
+    puts validate_get_pass_mark
+    puts 'archivo.show_pass_pupil(validate_get_pass_mark)'
   when 4
     puts 'Nos vemos!'
     exit = true
