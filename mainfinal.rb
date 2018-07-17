@@ -1,3 +1,5 @@
+require_relative 'archivadorHashFinal.rb'
+
 def menu
   puts ''
   puts 'MENU JRG'
@@ -25,16 +27,14 @@ def validate_get_pass_mark
   end
 end
 
-puts 'archivo = ArchivadorHash.new'
+archivo = ArchivadorHash.new
 
 exit = false
 until exit
   case menu
-  when 1 then puts 'archivo.genenate_average_files'
-  when 2 then puts 'archivo.show_total_unattendance_number'
-  when 3
-    puts validate_get_pass_mark
-    puts 'archivo.show_pass_pupil(validate_get_pass_mark)'
+  when 1 then archivo.genenate_average_files
+  when 2 then archivo.show_total_unattendance_number
+  when 3 then archivo.show_pass_pupil(validate_get_pass_mark)
   when 4
     puts 'Nos vemos!'
     exit = true
