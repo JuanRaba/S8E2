@@ -1,6 +1,11 @@
 # archivadorhash.rb
 # define class Archivador
 
+def get_avg(marks)
+  sum = marks.inject (0) { |mem, var| mem + var.to_i }
+  sum / marks.size.to_f
+end
+
 # CLASS ARCHIVADORHASH
 # This class can read & write from files
 # As this program does not write on the file one read is needed
@@ -24,6 +29,13 @@ class ArchivadorHash
   def genenate_average_files
     puts 'genenate_average_files'
     puts @data
+    @data.each do |key, e|
+      final = get_avg(e)
+      puts "#{key} #{final}"
+      File.open(key.to_s, 'w') do |file|
+        file.puts("#{key}, #{final}")
+      end
+    end
   end
 
   # this method counts unattendance considering they are like '00'
