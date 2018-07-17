@@ -1,4 +1,4 @@
-require_relative 'archivadorHashFinal.rb'
+require_relative 'archivadorHash.rb'
 
 def menu
   puts ''
