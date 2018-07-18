@@ -61,8 +61,7 @@ class ArchivadorHash
   def show_pass_pupil(validated_pass_mark=5)
     puts "show_pass_pupil (#{validated_pass_mark})"
     @data.each do |key, e|
-      final = get_avg(e)
-      puts key.to_s if final >= validated_pass_mark
+      puts key.to_s if  get_avg(e) >= validated_pass_mark
     end
   end
 end
