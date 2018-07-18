@@ -14,7 +14,7 @@ end
 def pass_mark_get
   puts ''
   print 'Ingresa num del 0 al 10: '
-  gets.chomp.to_i
+  gets.chomp.to_f
 end
 
 def validate_get_pass_mark
