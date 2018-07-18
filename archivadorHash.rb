@@ -19,14 +19,17 @@ class ArchivadorHash
 
   def read_data(filename)
     File.open(filename, 'r') do |file|
-      file.readlines.map do |line|
+      file.readlines.each do |line|
         # gsub 'A' to 00 as 00.to_i is 0 but '00' != '0'
         # care if name is just 'A'
         pupil = line.split(', ').map { |e| e.chomp.gsub('A', '00') }
-        name = pupil.shift
-        @data[name.to_sym] = pupil
+        add_pupil(*pupil)
       end
     end
+  end
+
+  def add_pupil(name, *marks)
+    @data[name.to_sym] = marks
   end
 
   # this method writes average files considering data as :name =[mark..mark]
