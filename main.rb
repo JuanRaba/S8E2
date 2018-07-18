@@ -27,7 +27,7 @@ def validate_get_pass_mark
   end
 end
 
-archivo = ArchivadorHash.new
+archivo = ArchivadorHash.new('data.csv')
 
 exit = false
 until exit

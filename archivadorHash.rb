@@ -12,9 +12,13 @@ end
 # NOTE: if you want to write refresh data to maintain data coherence
 class ArchivadorHash
   # This class storage data using a Hash of Arrays
-  def initialize
+  def initialize(filename)
     @data = {}
-    File.open('data.csv', 'r') do |file|
+    read_data(filename)
+  end
+
+  def read_data(filename)
+    File.open(filename, 'r') do |file|
       file.readlines.map do |line|
         # gsub 'A' to 00 as 00.to_i is 0 but '00' != '0'
         # care if name is just 'A'
@@ -32,9 +36,13 @@ class ArchivadorHash
     @data.each do |key, e|
       final = get_avg(e)
       puts "#{key} #{final}"
-      File.open(key.to_s, 'w') do |file|
-        file.puts("#{key}, #{final}")
-      end
+      write_avg(key, final)
+    end
+  end
+
+  def write_avg(key, final)
+    File.open(key.to_s, 'w') do |file|
+      file.puts("#{key}, #{final}")
     end
   end
 
