@@ -22,7 +22,7 @@ def validate_get_pass_mark
   if pass_mark.between?(0, 10)
     pass_mark
   else
-    puts 'As the pass_mark was not in 0 to 10 range, 5 is the default value'
+    puts 'Como el valor introducido no estaba en el rango de 0 a 10 range, el valor por defecto es 5'
     5
   end
 end

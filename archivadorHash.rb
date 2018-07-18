@@ -47,7 +47,7 @@ class ArchivadorHash
     puts total_unattendance_number.to_s
   end
 
-  def show_pass_pupil(validated_pass_mark)
+  def show_pass_pupil(validated_pass_mark=5)
     puts "show_pass_pupil (#{validated_pass_mark})"
     @data.each do |key, e|
       final = get_avg(e)
