@@ -32,6 +32,19 @@ class ArchivadorHash
     @data[name.to_sym] = marks
   end
 
+  # this method writes averages file considering Richard words
+  def genenate_averages_file
+    puts 'genenate_averages_file'
+    puts @data
+    file = File.open('averages.file', 'w')
+    @data.each do |key, e|
+      final = get_avg(e)
+      puts "#{key} #{final}"
+      file.puts("#{key}, #{final}")
+    end
+    file.close
+  end
+
   # this method writes average files considering data as :name =[mark..mark]
   def genenate_average_files
     puts 'genenate_average_files'

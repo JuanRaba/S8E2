@@ -32,7 +32,7 @@ archivo = ArchivadorHash.new('data.csv')
 exit = false
 until exit
   case menu
-  when 1 then archivo.genenate_average_files
+  when 1 then archivo.genenate_averages_file
   when 2 then archivo.show_total_unattendance_number
   when 3 then archivo.show_pass_pupil(validate_get_pass_mark)
   when 4
